@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KodiAI Demos</title>
+<meta name="description" content="Live demos of KodiAI, an AI assistant for Albanian construction engineering, built by Ani Verzivolli with AI coding agents.">
+<style>
+  :root {
+    --ground: #10151c; --surface: #1c2836; --border: #2a3a4d;
+    --ink: #e9eef3; --ink-dim: #96a8bb; --accent: #3d87b8; --accent-2: #d99a3f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font: 16px/1.55 "Trebuchet MS", system-ui, sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 40px 16px 64px; }
+  a { color: var(--accent); }
+  h1 { font-family: Rockwell, "Roboto Slab", Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0 0 8px; }
+  h1 .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); margin-right: 10px; vertical-align: middle; }
+  .lead { color: var(--ink-dim); max-width: 760px; margin: 0 0 12px; }
+  .by { color: var(--ink-dim); font-size: 0.92rem; margin: 0 0 32px; }
+  .by a { color: var(--ink); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .card img { display: block; width: 100%; aspect-ratio: 1000 / 620; object-fit: cover; object-position: top; border-bottom: 1px solid var(--border); }
+  .card .body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .card h2 { font-size: 1.1rem; margin: 0; }
+  .card p { margin: 0; color: var(--ink-dim); font-size: 0.92rem; }
+  .try { font-size: 0.88rem; color: var(--ink); }
+  .try b { color: var(--accent-2); font-weight: 600; }
+  .stack { font-family: Consolas, monospace; font-size: 0.74rem; color: var(--ink-dim); }
+  .links { margin-top: auto; display: flex; gap: 10px; flex-wrap: wrap; padding-top: 6px; }
+  .links a { text-decoration: none; border: 1px solid var(--border); border-radius: 8px; padding: 7px 12px; font-size: 0.88rem; color: var(--ink); }
+  .links a.primary { background: var(--accent); border-color: var(--accent); color: var(--ground); font-weight: 700; }
+  .note { margin-top: 36px; color: var(--ink-dim); font-size: 0.88rem; border-top: 1px solid var(--border); padding-top: 18px; }
+</style>
+</head>
+<body>
+<main>
+  <h1><span class="dot"></span>KodiAI demos</h1>
+  <p class="lead">
+    KodiAI is an AI assistant for Albanian construction engineering, in development. Each module below is
+    published as a standalone live demo running on sample data: open one and try it, no account needed.
+  </p>
+  <p class="by">
+    Built by Ani Verzivolli, civil engineer and self-taught developer, with AI coding agents (Claude Code) ·
+    <a href="https://www.linkedin.com/in/ani-verzivolli">LinkedIn</a> ·
+    <a href="https://github.com/Verzivolli">GitHub</a>
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <img src="img/ktp.jpg" alt="KTP search answering a question with clause citations" loading="lazy">
+      <div class="body">
+        <h2>KTP Search (RAG)</h2>
+        <p>AI search over Albania's 24 technical design codes. Every answer cites the numbered clause it comes from, and citations are checked against the retrieved text.</p>
+        <p class="try"><b>Try:</b> an example question, then ask a follow-up of your own (5 live questions per visitor).</p>
+        <p class="stack">Next.js · TypeScript · Postgres (PGlite) · DeepSeek via OpenRouter · 80-question eval</p>
+        <div class="links">
+          <a class="primary" href="https://albanian-construction-legislation-r.vercel.app">Open demo</a>
+          <a href="https://github.com/Verzivolli/albanian-construction-legislation-rag-search">Code</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="img/boq.jpg" alt="BoQ Builder editing a sample bill of quantities" loading="lazy">
+      <div class="body">
+        <h2>BoQ Builder</h2>
+        <p>Bill of Quantities editor on the official SIM price catalogue (2,290 analyses, 2,051 materials), with formulas, Excel import/export and the government-portal API payload.</p>
+        <p class="try"><b>Try:</b> search <code>C25/30</code>, type <code>=R1*2</code> in a quantity cell, open "SIM payload (JSON)".</p>
+        <p class="stack">Next.js · React · react-datasheet-grid · exceljs · 130 tests</p>
+        <div class="links"><a class="primary" href="https://boq-sim-albania.vercel.app">Open demo</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="img/model.jpg" alt="Structural model builder showing a two-storey building with results" loading="lazy">
+      <div class="body">
+        <h2>Structural Model Builder</h2>
+        <p>3D structural model builder in the browser, with Eurocode 8 response-spectrum definitions, SAP2000/ETABS import and real OpenSeesPy results.</p>
+        <p class="try"><b>Try:</b> open the Viewer tab (modes, base shear), then Examples → EC8 detailing and Design Checks.</p>
+        <p class="stack">JavaScript · Three.js · OpenSeesPy · Python validation</p>
+        <div class="links"><a class="primary" href="https://structural-model-builder.vercel.app">Open demo</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="img/dossier.jpg" alt="Dossier workspace rendering a construction document from a template" loading="lazy">
+      <div class="body">
+        <h2>Dossier Workspace</h2>
+        <p>Generates the construction-phase document package (notices, conformity acts, site diary, acceptance reports) from one set of project fields: 26 templates.</p>
+        <p class="try"><b>Try:</b> pick a phase and a document, then Download DOCX.</p>
+        <p class="stack">Next.js · TipTap/ProseMirror · docx · pdfmake · 204 tests</p>
+        <div class="links"><a class="primary" href="https://kodiai-dossier-demo.vercel.app">Open demo</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="img/calculators.jpg" alt="Eurocode calculator showing step-by-step concrete bending check" loading="lazy">
+      <div class="body">
+        <h2>Eurocode &amp; KTP Calculators</h2>
+        <p>22 structural calculators (EN1992/1993/1994/1997/1998 and Albanian KTP codes), each showing every step with its clause and formula.</p>
+        <p class="try"><b>Try:</b> Punching shear or Retaining wall, and change the inputs.</p>
+        <p class="stack">Single static page · no backend · hand-checked notes per calculator</p>
+        <div class="links"><a class="primary" href="https://eurocode-calculators.vercel.app">Open demo</a></div>
+      </div>
+    </article>
+  </div>
+
+  <p class="note">
+    All demos run on sample data only; nothing you enter is stored or sent to KodiAI's database. KTP questions you type are sent to an AI model provider (OpenRouter) to be answered. The full application
+    adds accounts, storage and the connection to Albania's SIM portal.
+  </p>
+</main>
+</body>
+</html>
